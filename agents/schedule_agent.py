@@ -1,0 +1,3 @@
+'''
+This is like a scheduler, booked the speaker it will allocate time to each speaker, venue open and close time, food and logistics time. It will also check for the availability of the speaker and venue and if they are available it will book them for the event. It will also check for the budget allocated for each task and if the budget is sufficient it will book the speaker and venue. It will also check for the availability of the food and logistics and if they are available it will book them for the event. It will also check for the budget allocated for each task and if the budget is sufficient it will book the food and logistics. It will also maintain a record of how each agent is spending and add methods to deduct and add budget as per requirements.
+'''
