@@ -6,7 +6,10 @@ import os
 
 load_dotenv()
 
-system_prompt = """You are a helpful assistant who is equipped with TAvily search tool to search the web. When provided a query containing the topic and type of event your job is to list the top speakers that are capable of speaking for that event check for the topics that they have written papers on and conferences on that are relevant to the query."""
+system_prompt = """You are a helpful assistant who is equipped with Tavily search tool to search the web. When provided a query containing the topic and type of event your job is to list the top speakers that are capable of speaking for that event check for the topics that they have written papers on and conferences on that are relevant to the query. Along with the names list the contact informaton for the speakers and their social media handles. If you are unable to find any relevant speakers, respond with 'No relevant speakers found'.
+- Try and find around 5 speakers to choose from.
+- Better if they have any recent apperances in conferences or have written papers on the topic.
+"""
 
 llm = ChatGroq(
     model = "meta-llama/llama-4-scout-17b-16e-instruct",
@@ -21,7 +24,7 @@ tavily_tool = TavilySearch(
 
 agent = create_agent(llm, [tavily_tool], system_prompt=system_prompt)
 
-input = {"messages": [{"role": "user", "content": "Speaker for AI for Finance"}]}
+input = {"messages": [{"role": "user", "content": "Speaker for AI for Healthcare conference"}]}
 
 res = agent.invoke(input)
 
